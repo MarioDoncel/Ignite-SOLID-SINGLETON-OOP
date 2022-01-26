@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --inspect --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
+    "dev": "ts-node-dev --respawn --inspect --poll --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "play": "nodemon --exec npx ts-node src/server.ts"
   },
   "keywords": [],
@@ -33,6 +33,10 @@
     "cors": "^2.8.5",
     "csv-parse": "^5.0.4",
     "express": "^4.17.2",
-    "multer": "^1.4.4"
+    "multer": "^1.4.4",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41",
+    "uuid": "^8.3.2"
   }
 }
