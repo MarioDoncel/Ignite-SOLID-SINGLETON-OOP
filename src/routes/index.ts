@@ -1,16 +1,15 @@
-import express, { NextFunction, Request, Response } from 'express'
-import categoriesRoutes from './categories.routes'
-import specificationRoutes from './specification.routes'
+import express, { NextFunction, Request, Response } from 'express';
 
-const router = express.Router()
+import categoriesRoutes from './categories.routes';
+import specificationRoutes from './specification.routes';
 
-router.use('/categories', categoriesRoutes)
-router.use('/specification', specificationRoutes)
+const router = express.Router();
 
+router.use('/categories', categoriesRoutes);
+router.use('/specification', specificationRoutes);
 
 router.get('/', (req: Request, res: Response, next: NextFunction) => {
-  return res.status(200).send(`Hello Mario!`)
-})
+  return res.status(200).send('Hello Mario!');
+});
 
-
-export default router
+export default router;

@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
+import cors from 'cors';
 import express from 'express';
-import routes from './routes';
-import cors from 'cors'
-import swaggerUi from 'swagger-ui-express'
+import swaggerUi from 'swagger-ui-express';
 
-import swaggerFile from './swagger.json'
+import routes from './routes';
+import swaggerFile from './swagger.json';
+
+import './database';
 
 const app = express();
 const PORT = 3333;
@@ -13,8 +15,10 @@ const URL = 'http://localhost';
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.use(routes);
 
-app.listen(PORT, () => console.log(`⚡️:Server is listening on ${URL}:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`⚡️:Server is listening on ${URL}:${PORT}`)
+);
