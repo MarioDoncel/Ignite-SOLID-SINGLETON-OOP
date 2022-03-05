@@ -1,13 +1,11 @@
-import express, { NextFunction, Request, Response } from 'express'
+import express from 'express';
 
-import { createSpecificationController } from '../modules/cars/useCases/createSpecification'
+import { CreateSpecificationController } from '../modules/cars/useCases/createSpecification/createSpecification.controller';
 
+const router = express.Router();
 
-const router = express.Router()
+const createSpecificationController = new CreateSpecificationController();
 
-router.post('/', (req: Request, res: Response, next: NextFunction) => {
-  return createSpecificationController.handle(req, res, next)
-})
+router.post('/', createSpecificationController.handle);
 
-
-export default router
+export default router;

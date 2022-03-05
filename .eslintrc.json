@@ -36,10 +36,21 @@
       "always"
     ],
     // we use 2 spaces to indent our code
-    "indent": [
+    "indent": "off",
+    "@typescript-eslint/indent": [
       "error",
       2
     ],
+    // "indent": [
+    //   "error",
+    //   2,
+    //   {
+    //     "SwitchCase": 1,
+    //     "ignoredNodes": [
+    //       "PropertyDefinition"
+    //     ]
+    //   }
+    // ],
     // we want to avoid extraneous spaces
     "no-multi-spaces": [
       "error"
