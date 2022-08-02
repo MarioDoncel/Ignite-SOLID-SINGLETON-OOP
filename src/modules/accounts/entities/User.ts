@@ -2,7 +2,7 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
-@Entity('categories')
+@Entity('users')
 class Category {
   @PrimaryColumn()
   id?: string;
@@ -11,7 +11,19 @@ class Category {
   name!: string;
 
   @Column()
-  description!: string;
+  username!: string;
+
+  @Column()
+  email!: string;
+
+  @Column()
+  password!: string;
+
+  @Column()
+  driverLicense!: string;
+
+  @Column()
+  is_admin!: boolean;
 
   @CreateDateColumn()
   created_at!: Date;

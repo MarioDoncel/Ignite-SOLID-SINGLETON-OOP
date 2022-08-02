@@ -1,0 +1,2 @@
+- Always Up Rentx in Docker and stop Postgres Service in Windows.
+- Migrations commands in packgeJson because typescript need ts-node

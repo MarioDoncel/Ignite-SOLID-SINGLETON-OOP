@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --inspect --poll --transpile-only --ignore-watch node_modules --no-notify src/server.ts",
     "play": "nodemon --exec npx ts-node src/server.ts",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "runMigration": "ts-node-dev ./node_modules/typeorm/cli migration:run",
+    "revertMigration": "ts-node-dev ./node_modules/typeorm/cli migration:revert",
+    "createMigration": "ts-node-dev ./node_modules/typeorm/cli migration:create -n"
   },
   "keywords": [],
   "author": "",
