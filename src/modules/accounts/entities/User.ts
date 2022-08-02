@@ -3,7 +3,7 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 @Entity('users')
-class Category {
+class User {
   @PrimaryColumn()
   id?: string;
 
@@ -20,7 +20,7 @@ class Category {
   password!: string;
 
   @Column()
-  driverLicense!: string;
+  driver_license!: string;
 
   @Column()
   is_admin!: boolean;
@@ -35,4 +35,4 @@ class Category {
   }
 }
 
-export default Category;
+export default User;
