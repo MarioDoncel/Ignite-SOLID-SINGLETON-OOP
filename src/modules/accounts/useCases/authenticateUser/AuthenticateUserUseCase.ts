@@ -2,6 +2,8 @@ import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import { inject, injectable } from 'tsyringe';
 
+import { AppError } from '@shared/exceptions/AppError';
+
 import { IUsersRepository } from '../../repositories/IUserRepository';
 
 const { JWT_SECRET } = process.env;
@@ -25,13 +27,13 @@ export class AuthenticateUserUseCase {
   async execute({ email, password }: IRequest): Promise<IResponse> {
     const userExists = await this.usersRepository.findByEmail(email);
     if (!userExists) {
-      throw new Error('Email or password incorrect');
+      throw new AppError('Email or password incorrect', 400);
     }
     const autheticated = compare(password, userExists.password);
     if (!autheticated) {
-      throw new Error('Email or password incorrect');
+      throw new AppError('Email or password incorrect', 400);
     }
-    const token = sign({ email }, JWT_SECRET as string, {
+    const token = sign({ email }, (JWT_SECRET as string) || 'secret', {
       subject: userExists.id,
       expiresIn: '1d',
     });

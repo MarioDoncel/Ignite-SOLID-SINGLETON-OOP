@@ -1,17 +1,19 @@
-import Category from '../entities/Category';
+import Category from '../../infrastructure/typeorm/entities/Category';
 import ICategoriesRepository, {
   ICreateCategoryDTO,
-} from './ICategories.repository';
+} from '../ICategories.repository';
 
 class PostgreCategoriesRepository implements ICategoriesRepository {
-  findByName(name: string): Category {
+  findByName(name: string): Promise<Category> {
     console.log(name);
     throw new Error('Method not implemented.');
   }
-  list(): Category[] {
+  list(): Promise<Category[]> {
     throw new Error('Method not implemented.');
   }
-  create({ name, description }: ICreateCategoryDTO): void {
+  create({ name, description }: ICreateCategoryDTO): Promise<void> {
     throw new Error('Method not implemented.');
   }
 }
+
+export { PostgreCategoriesRepository };

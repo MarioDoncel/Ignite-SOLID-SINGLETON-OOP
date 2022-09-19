@@ -1,9 +1,9 @@
 import express, { NextFunction, Request, Response } from 'express';
 import multer from 'multer';
 
-import { CreateCategoryController } from '../modules/cars/useCases/createCategory/CreateCategoryController';
-import { ImportCategoryController } from '../modules/cars/useCases/importCategory/importCategoryController';
-import { ListCategoryController } from '../modules/cars/useCases/ListCategories/ListCategoryController';
+import { CreateCategoryController } from '../../../../modules/cars/useCases/createCategory/CreateCategoryController';
+import { ImportCategoryController } from '../../../../modules/cars/useCases/importCategory/importCategoryController';
+import { ListCategoryController } from '../../../../modules/cars/useCases/ListCategories/ListCategoryController';
 
 const router = express.Router();
 const upload = multer({
