@@ -7,11 +7,12 @@ import swaggerUi from 'swagger-ui-express';
 
 import swaggerFile from '../../../swagger.json';
 import { AppError } from '../../exceptions/AppError';
+import createConnection from '../typeorm';
 import routes from './routes';
 
-import '../typeorm';
 import '../../container';
 
+createConnection('localhost');
 const app = express();
 const PORT = 3333;
 const URL = 'http://localhost';

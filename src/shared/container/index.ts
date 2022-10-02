@@ -1,3 +1,5 @@
+import { CarsRepository } from '@modules/cars/infrastructure/typeorm/repositories/Cars.repository';
+import { ICarsRepository } from '@modules/cars/repositories/ICars.repository';
 import { container } from 'tsyringe';
 
 import { UsersRepository } from '../../modules/accounts/infrastructure/typeorm/repositories/UsersRepository';
@@ -19,3 +21,4 @@ container.registerSingleton<IUsersRepository>(
   'UsersRepository',
   UsersRepository
 );
+container.registerSingleton<ICarsRepository>('CarsRepository', CarsRepository);
