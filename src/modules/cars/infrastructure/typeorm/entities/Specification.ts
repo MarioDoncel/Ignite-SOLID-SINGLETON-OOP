@@ -3,9 +3,9 @@ import { Column, CreateDateColumn, Entity, PrimaryColumn } from 'typeorm';
 import { v4 as uuid } from 'uuid';
 
 @Entity('specifications')
-class Especification {
+class Specification {
   @PrimaryColumn()
-  id?: string;
+  id!: string;
 
   @Column()
   name!: string;
@@ -22,4 +22,4 @@ class Especification {
   }
 }
 
-export default Especification;
+export default Specification;

@@ -9,6 +9,8 @@ export interface IFindAllAvailableRequest {
 
 interface ICarsRepository {
   create(data: ICreateCarDTO): Promise<Car>;
+  save(car: Car): Promise<Car>;
+  findById(car_id: string): Promise<Car | undefined>;
   findByLicensePlate(license_plate: string): Promise<Car | undefined>;
   findAllAvailable(params: IFindAllAvailableRequest): Promise<Car[]>;
 }

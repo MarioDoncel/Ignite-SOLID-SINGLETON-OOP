@@ -11,6 +11,18 @@ class CarsRepositoryInMemory implements ICarsRepository {
     this.cars.push(car);
     return car;
   }
+  async save(car: Car): Promise<Car> {
+    let carExists = false;
+    this.cars = this.cars.map((currentCar) => {
+      if (currentCar.id === car.id) {
+        carExists = true;
+        return car;
+      }
+      return currentCar;
+    });
+    if (!carExists) throw new Error('Car not found');
+    return car;
+  }
   async findByLicensePlate(license_plate: string): Promise<Car | undefined> {
     return this.cars.find((car) => car.license_plate === license_plate);
   }
@@ -26,6 +38,9 @@ class CarsRepositoryInMemory implements ICarsRepository {
       if (name ? car.name !== name : false) return false;
       return true;
     });
+  }
+  async findById(id: string): Promise<Car | undefined> {
+    return this.cars.find((car) => car.id === id);
   }
 }
 

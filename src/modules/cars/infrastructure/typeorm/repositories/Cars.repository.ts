@@ -18,6 +18,11 @@ class CarsRepository implements ICarsRepository {
     await this.repository.save(car);
     return car;
   }
+  async save(car: Car): Promise<Car> {
+    await this.repository.findOneOrFail({ id: car.id });
+    const updatedCar = await this.repository.save(car);
+    return updatedCar;
+  }
   async findByLicensePlate(license_plate: string): Promise<Car | undefined> {
     return this.repository.findOne({ license_plate });
   }
@@ -49,6 +54,9 @@ class CarsRepository implements ICarsRepository {
     //     ...(category_id ? { category_id } : {}),
     //   },
     // });
+  }
+  async findById(car_id: string): Promise<Car | undefined> {
+    return this.repository.findOne(car_id);
   }
 }
 
